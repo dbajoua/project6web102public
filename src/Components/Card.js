@@ -1,27 +1,28 @@
 import react from "react";
-
+import { Link } from "react-router-dom";
 
   
 
-const Card=(movie)=>{
-   
-    let img_path="https://image.tmdb.org/t/p/w500";
-    return(
-        <>
-            <div className="movie">
-                <img src={img_path+movie.info.poster_path} className="poster"></img>
-                <div className="movie-details">
-                    <div className="box">
-                        <h4 className="title">{movie.info.title}</h4>
-                        <p className="rating">{movie.info.vote_average}</p>
-                    </div>
-                    <div className="overview">
-                        <h1>overview</h1>
-                        {movie.info.overview}
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+const Card = ({ title, rating, overview, poster }) => {
+    return (
+      <div className="card">
+        <Link to={{
+          pathname: "/movie",
+          state: {
+            title: title,
+            rating: rating,
+            overview: overview,
+            poster: poster
+          }
+        }}>
+          <img src={poster} alt="movie poster" />
+          <div className="card-content"> 
+            <h3>{title}</h3>
+            <p>Rating: {rating}</p>
+            <p>{overview}</p>
+          </div>
+        </Link>
+      </div>
+    );
+  };
 export default Card;

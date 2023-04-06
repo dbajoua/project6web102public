@@ -2,6 +2,7 @@ import { getDefaultNormalizer } from "@testing-library/react";
 import react,{useState} from "react";
 import { useEffect } from "react/cjs/react.development";
 import Card from "./Card";
+import Movie from './Movie'; // import the Movie component
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, CartesianGrid, XAxis, YAxis, Bar} from "recharts";
 
 
@@ -13,6 +14,8 @@ const Main=()=>{
     const [movieData,setData]=useState([]);
     const [url_set,setUrl]=useState(url);
     const [search,setSearch]=useState();
+
+    
 
     //new AVG RATING
     const [averageRating, setAverageRating] = useState(null);
@@ -153,9 +156,14 @@ const Main=()=>{
         }
     }
     return(
+        
         <>
+        <p>
+            FFFFF
+
+        </p>
             <div className="header">
-            <button onClick={toggleChartType}>Toggle AVG Rating Chart Type</button>
+            <button onClick={toggleChartType}>Toggle Chart Type</button>
 
                 <nav>
                     <ul>
